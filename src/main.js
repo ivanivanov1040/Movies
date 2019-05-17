@@ -19,5 +19,5 @@ Vue.http.options.root = 'https://fortnite-api.tresmos.xyz/';
 new Vue({
   render: h => h(App),
   router: Router,
-  store
+  store,
 }).$mount('#app');

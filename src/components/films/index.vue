@@ -1,10 +1,10 @@
 <template>
   <div>
     <h1 class="alignTitle">Филми</h1>
-        <div v-for="movie in currMovies" v-bind:key="movie.name">
+        <div v-for="movie in this.$store.state.movies" v-bind:key="movie.name">
           {{ movie.name }}
         </div>
-  </div>  
+  </div>    
 </template>
 
 <script>
@@ -12,42 +12,16 @@
 import axios from 'axios';
 export default {  
   name: 'Movies',
-  data(){
-    return{
-      currMovies: [],
-      index:''
+  data() {
+    return {
+      films: []
     }
   },
-  methods:{    
-        async getMovies() {
-          console.log('vzima');
-          const res = await axios.post(            
-            'http://localhost:4000/graphql', {
-              query: `{
-                getMovies {
-                  name
-                  genre
-                  description
-                  cast
-                }
-              }`
-            }
-          );
-          this.films = res.data.data.getMovies;
-          
-          console.log(this.films);
-        }
-  },
-  created(){
-    console.log('rajda');
-    this.getMovies();
-  },
-  // mounted() {
-  //   this.getMovies();
-  // },
-  // beforeCreate() {
-  //   getMovies();
-  // }
+  computed:{
+    movies () {
+      return this.$store.state.movies
+    }
+  },  
 }
 </script>
 

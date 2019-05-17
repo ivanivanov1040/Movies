@@ -46,7 +46,7 @@
 <script>
 /* eslint-disable */
 import axios from 'axios';
-import { mapState } from 'vuex';
+
 export default {
   name: 'AddMovie',
   data(){
@@ -56,10 +56,7 @@ export default {
       description: '',
       cast: '',
     }
-  },
-  computed: mapState({
-    films: 'movies'
-  }),
+  },  
   methods:{
     async addMovie(){
       console.log('rajda');
@@ -81,9 +78,8 @@ export default {
           cast: this.cast,
         }
       })
-      f
-      movies.push(res.data.data.addMovie)
-      console.log(movies);
+      this.$store.commit('add', res.data.data.addMovie)
+      console.log(this.$store.state.movies);
     }
   }
 }

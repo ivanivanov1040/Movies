@@ -14,16 +14,37 @@
 <script>
 import Navigation from './components/navigation';
 import Footer from './components/footer';
-
+import axios from 'axios';
 export default {
   name: 'app',
   components:{
     Navigation,
     Footer
   },
-  props: {
-    films: []
-  }
+  methods:{    
+        async getMovies() {
+          //console.log('vzima');
+          const res = await axios.post(            
+            'http://localhost:4000/graphql', {
+              query: `{
+                getMovies {
+                  name
+                  genre
+                  description
+                  cast
+                }
+              }`
+            }
+          );
+
+          this.$store.commit('add', res.data.data.getMovies[0])
+          //console.log(this.films);
+        }
+  },
+  created(){
+   // console.log('rajda');
+    this.getMovies();
+  },
 }
 </script>
 

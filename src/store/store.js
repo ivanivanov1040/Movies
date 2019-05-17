@@ -9,7 +9,7 @@ export const store = new Vuex.Store({
     },
     mutations: {
         add(state, movie){
-            state.movies.push(movie)
+            state.movies.push(movie);
         }
     },
     getters: {
