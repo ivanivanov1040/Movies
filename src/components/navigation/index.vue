@@ -9,9 +9,6 @@
                 <router-link tag="b-navbar-brand" to="/addmovie">
                         <a>Добави филм</a>
                 </router-link>
-                <router-link tag="b-navbar-brand" to="/store">
-                        <a>Магазин</a>
-                </router-link>
             </b-navbar>
         </b-col>
     </b-row>

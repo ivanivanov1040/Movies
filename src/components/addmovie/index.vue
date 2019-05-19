@@ -14,7 +14,7 @@
         <input type="text" class="form-control" v-model="name">
       </b-col>      
     </b-row>
-    <b-row>
+    <b-row class="spaceTop">
       <b-col cols="4" class="alignText">
         <label>Въведете жанр:</label>
       </b-col>
@@ -22,7 +22,7 @@
         <input type="text" class="form-control" v-model="genre">
       </b-col>      
     </b-row>
-    <b-row>
+    <b-row class="spaceTop">
       <b-col cols="4" class="alignText">
         <label>Въведете описание:</label>
       </b-col>
@@ -30,7 +30,7 @@
         <textarea class="form-control" rows="4" v-model="description"></textarea>      
       </b-col>      
     </b-row>
-    <b-row>
+    <b-row class="spaceTop">
       <b-col cols="4" class="alignText">
         <label>Въведете актьори:</label>
       </b-col>
@@ -38,7 +38,11 @@
         <input type="text" class="form-control" v-model="cast">
       </b-col>      
     </b-row>
-    <button @click="addMovie" class="btn btn-primary">Въведи филм</button>
+    <b-row class="spaceTop">
+      <b-col cols="2" offset="10">
+        <button @click="addMovie" class="btn btn-primary buttonWidth">Въведи филм</button>
+      </b-col>  
+    </b-row>    
     </b-container>
   </div>
 </template>
@@ -87,21 +91,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.alignText{
-  text-align: right;
+.buttonWidth{
+  width: 100%;
 }
 
-b-col.span{
-  text-align: right;
-}
-.alignTitle{
-  text-align: center;
-}
-.spanAlign{
-  float: right;
-}
-.card-img-left{
-  height: 100px;
-  width: 100px;
+.spaceTop {
+  margin-top: 5px;
+  margin-bottom: 3px;
 }
 </style>

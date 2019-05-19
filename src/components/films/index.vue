@@ -1,9 +1,19 @@
 <template>
   <div>
-    <h1 class="alignTitle">Филми</h1>
-        <div v-for="movie in this.$store.state.movies" v-bind:key="movie.name">
-          {{ movie.name }}
+    <h1 class="alignTitle">Филми</h1>        
+    <b-row v-for="i in Math.ceil(movies.length / 2)" v-bind:key="i" class="spaceTop">
+      <b-col cols="6" v-for="movie in movies.slice((i - 1) * 2, i *2)" v-bind:key="movie.name">
+        <div class="card maxWidth">
+          <div class="card-body">
+            <h4 class="card-title">{{ movie.name }}</h4>
+            <h5 class="card-subtitle mb-2 text-muted">{{ movie.genre }}</h5>
+            <p class="card-text">{{ movie.description }}</p>
+            <h6 class="card-subtitle mb-2 text-muted">{{ movie.cast }}</h6>
+          </div>
         </div>
+      </b-col>
+    </b-row>
+    
   </div>    
 </template>
 
@@ -27,32 +37,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.image{
-  width: 200px;
-  height: 200px;
+.maxWidth{
+  width: 100%;
+}
+
+.spaceTop {
   margin-top: 5px;
-  margin-right: 5px;
+  margin-bottom: 3px;
 }
-
-img{
-  height: 100%;
-  max-width: 100%;
-  display: block;
-  margin: auto;
-}
-
-.parrent{
-  margin: 2px;
-}
-
-.content{
-  float: right;
-  text-align: left;
-}
-
-.card-img-left{
-  height: 200px;
-  width: 200px;
-}
-
 </style>
