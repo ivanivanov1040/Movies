@@ -13,7 +13,7 @@ Vue.use(VueSweetalert2);
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(VueResource);
-Vue.http.options.root = 'https://fortnite-api.tresmos.xyz/';
+
 
 
 new Vue({
